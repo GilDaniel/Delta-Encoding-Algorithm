@@ -1,14 +1,22 @@
 #include <iostream>
-#include "../src/DeltaEncoding.h"
+#include "Compression/CompressionHandler.h"
+#include "Compression/Compression.h"
+#include "DeltaEncoding/DeltaEncoding.h"
 
+#define DATA_SIZE 5
 
 
 int main(){
+    int data[DATA_SIZE] = {1000,1001,1002,1004};
+
+    DeltaEncoding deltaEnc;
+    CompressionHandler compressionHandler(deltaEnc);
 
 
-    std::byte *dataToEncode = new std::byte[1000];
-    DeltaEncoding deltaEncoder;
-    std::byte *encoded = deltaEncoder.Encode(dataToEncode);
+    int* compressedData =  compressionHandler.Compress(data,DATA_SIZE);
+    int* decompressedData = compressionHandler.Decompress(compressedData,DATA_SIZE);
     
+    delete[] compressedData;
+    delete[] decompressedData;
 }
 
