@@ -32,7 +32,7 @@ int main(){
                 cout << "Digite o tamanho do vetor a ser compactado:" << endl;
                 cin >> DATA_SIZE;
                 int data[DATA_SIZE];
-                char u[DATA_SIZE];
+                char u[sizeof(int) + (DATA_SIZE - 1)];
                 cout << "Digite os elementos de seu vetor:" << endl;
                 for (int i = 0; i<DATA_SIZE; i++){
                     cin >> data[i];
