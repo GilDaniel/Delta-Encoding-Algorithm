@@ -7,7 +7,7 @@
 
 
 int main(){
-    int data[DATA_SIZE] = {1000,1001,1002,1004};
+    int data[DATA_SIZE] = {1000,1001,1002,1004,1007};
 
     DeltaEncoding deltaEnc;
     CompressionHandler compressionHandler(deltaEnc);
