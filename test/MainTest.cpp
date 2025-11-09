@@ -7,13 +7,13 @@
 
 
 int main(){
-    int data[DATA_SIZE] = {1000,1001,1002,1004};
+    int data[DATA_SIZE] = {1000,1001,1002,1004,1007};
 
     DeltaEncoding deltaEnc;
     CompressionHandler compressionHandler(deltaEnc);
 
 
-    int* compressedData =  compressionHandler.Compress(data,DATA_SIZE);
+    char* compressedData =  compressionHandler.Compress(data,DATA_SIZE);
     int* decompressedData = compressionHandler.Decompress(compressedData,DATA_SIZE);
     
     delete[] compressedData;
