@@ -13,7 +13,7 @@ int main(){
     CompressionHandler compressionHandler(deltaEnc);
 
 
-    int* compressedData =  compressionHandler.Compress(data,DATA_SIZE);
+    char* compressedData =  compressionHandler.Compress(data,DATA_SIZE);
     int* decompressedData = compressionHandler.Decompress(compressedData,DATA_SIZE);
     
     delete[] compressedData;

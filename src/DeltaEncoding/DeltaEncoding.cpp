@@ -1,4 +1,4 @@
-#include "./DeltaEncoding/DeltaEncoding.h"
+#include "DeltaEncoding.h"
 
 
 char* DeltaEncoding::Compress(int* data, int dataSize) {
