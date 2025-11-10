@@ -25,7 +25,8 @@ using namespace std;
          @@           @@@@@        
         @@@            @@@@@       
        @@@             @@@@@       
-      @@@@@@@@@@@@@@@@@@@@@@@      
+      @@@@@@@@@@@@@@@@@@@@@@@    
+        
      _______             __    __                      ________                                      __  __                     
     |       \           |  \  |  \                    |        \                                    |  \|  \                    
     | $$$$$$$\  ______  | $$ _| $$_     ______        | $$$$$$$$ _______    _______   ______    ____| $$ \$$ _______    ______  
@@ -41,7 +42,7 @@ using namespace std;
 
 
 
-By  Carlos Davi Carvalho Lima dos Santos
+By  Carlos Davi Carvalho Lima dos Santos,
     Davi Gobo,
     Enzo Larger Manfio,
     Gil Daniel Silva Fernandes,
