@@ -5,35 +5,82 @@
 
 using namespace std;
 
+
+/*
+
+
+                                   
+                                   
+                                   
+                 @@                
+                @@@@               
+                @@@@               
+               @@@@@@              
+              @@@@@@@@             
+             @@@  @@@@@            
+            @@@    @@@@@           
+           @@@      @@@@           
+          @@@       @@@@@          
+          @@         @@@@@         
+         @@           @@@@@        
+        @@@            @@@@@       
+       @@@             @@@@@       
+      @@@@@@@@@@@@@@@@@@@@@@@    
+        
+     _______             __    __                      ________                                      __  __                     
+    |       \           |  \  |  \                    |        \                                    |  \|  \                    
+    | $$$$$$$\  ______  | $$ _| $$_     ______        | $$$$$$$$ _______    _______   ______    ____| $$ \$$ _______    ______  
+    | $$  | $$ /      \ | $$|   $$ \   |      \       | $$__    |       \  /       \ /      \  /      $$|  \|       \  /      \ 
+    | $$  | $$|  $$$$$$\| $$ \$$$$$$    \$$$$$$\      | $$  \   | $$$$$$$\|  $$$$$$$|  $$$$$$\|  $$$$$$$| $$| $$$$$$$\|  $$$$$$\
+    | $$  | $$| $$    $$| $$  | $$ __  /      $$      | $$$$$   | $$  | $$| $$      | $$  | $$| $$  | $$| $$| $$  | $$| $$  | $$
+    | $$__/ $$| $$$$$$$$| $$  | $$|  \|  $$$$$$$      | $$_____ | $$  | $$| $$_____ | $$__/ $$| $$__| $$| $$| $$  | $$| $$__| $$
+    | $$    $$ \$$     \| $$   \$$  $$ \$$    $$      | $$     \| $$  | $$ \$$     \ \$$    $$ \$$    $$| $$| $$  | $$ \$$    $$
+    \$$$$$$$   \$$$$$$$ \$$    \$$$$   \$$$$$$$       \$$$$$$$$ \$$   \$$  \$$$$$$$  \$$$$$$   \$$$$$$$ \$$ \$$   \$$ _\$$$$$$$
+                                                                                                                  |  \__| $$
+                                                                                                                   \$$    $$
+                                                                                                                    \$$$$$$ 
+
+
+
+By  Carlos Davi Carvalho Lima dos Santos,
+    Davi Gobo,
+    Enzo Larger Manfio,
+    Gil Daniel Silva Fernandes,
+    Gustavo Tavares Gonçalves,                                                                                                                  
+    Vitor Rodrigues Santana,
+*/
+    
+
 int main(){
 
     int DATA_SIZE;
     DeltaEncoding deltaEnc;
     CompressionHandler compressionHandler(deltaEnc);
 
-    int escolha;
-    bool continuar = true;
-    while(continuar){
-        cout << "Demonstracao Algoritmo Delta Encoding" << endl;
-        cout << "1 - Sobre" << endl;
-        cout << "2 - Teste" << endl;
-        cout << "0 - Sair" << endl;
+    int chosen;
+    bool repeat = true;
+    while(repeat){
+        cout << "Delta Encoding Algorithm Showcase" << endl;
+        cout << "1 - About" << endl;
+        cout << "2 - Testing" << endl;
+        cout << "0 - Exit" << endl;
 
-        cin >> escolha;
+        cin >> chosen;
 
-        switch(escolha){
+        switch(chosen){
             case 1:
-                cout << "Este eh um programa que visa demonstrar o algoritmo de compactação Delta Encoding," << endl;
-                cout << "compactando um vetor de números inteiros atraves da diferença entre numeros consecutivos" << endl;
-                cout << endl << "IMPORTANTE: Este programa so eh capaz de propriamente compactar e descompactar vetores" << endl;
-                cout << "cuja diferenca entre dois valores consecutivos nao ultrapassa 127" << endl << endl;
+                
+                cout << "This code aims to showchase the Delta Encoding algorithm." << endl;
+                cout << "Works by compressing a vector of integer numbers through the difference of consecutive numbers." << endl;
+                cout << endl << "IMPORTANT: This can only propperly compress and decompress vectors (arrays) of integers" << endl;
+                cout << "that the difference of two consecutive terms don't exceed 127" << endl << endl;
                 break;
             case 2: {
-                cout << "Digite o tamanho do vetor a ser compactado:" << endl;
+                cout << "Type the size of the vector to be compressed" << endl;
                 cin >> DATA_SIZE;
                 int data[DATA_SIZE];
                 char u[sizeof(int) + (DATA_SIZE - 1)];
-                cout << "Digite os elementos de seu vetor:" << endl;
+                cout << "Type the elements of the vector:" << endl;
                 for (int i = 0; i<DATA_SIZE; i++){
                     cin >> data[i];
                 }
@@ -42,24 +89,24 @@ int main(){
                 int compressedLen = sizeof(int) + (DATA_SIZE - 1);
                 memcpy(u, compressedData, compressedLen);
 
-                cout << endl << "Vetor compactado (bytes):" << endl;
+                cout << endl << "Compressed vector (bytes):" << endl;
                 for(int i = 0; i < compressedLen - 1; i++){
                     cout << (int)(unsigned char)compressedData[i] << " ";
                 }
                 cout << (int)(unsigned char)compressedData[compressedLen - 1] << endl;
-                cout << "Vetor descompactadado: " << endl;
+                cout << "Uncompressed vector: " << endl;
                 for(int i = 0; i < DATA_SIZE-1; i++){
                     cout << decompressedData[i] << " ";
                 }
                 cout << decompressedData[DATA_SIZE-1] << endl;
-                cout << endl << "Memoria do vetor original(bytes): " << sizeof(data) << endl;
-                cout << "Memoria do vetor compactado(bytes): " << sizeof(u) << endl << endl;
+                cout << endl << "Memory of the original vector (bytes): " << sizeof(data) << endl;
+                cout << "Memory of the compressed vector(bytes): " << sizeof(u) << endl << endl;
                 delete[] compressedData;
                 delete[] decompressedData;
                 break; }
 
             case 0:
-                continuar = false;
+                repeat = false;
                 break;
         }
     }
